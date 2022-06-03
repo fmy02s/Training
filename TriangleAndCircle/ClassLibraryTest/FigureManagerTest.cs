@@ -55,6 +55,8 @@ namespace ClassLibraryTest
         {
             var triangle = new Triangle(new Point(1, 1), new Point(2, 1), new Point(1, 2));
             var circle = new Circle(new Point(5, 5), 1);
+            _target.Add(new FigureHolder(triangle, circle));
+
             Assert.AreEqual(Result.d_共通部分がない, _target.GetResult(0));
         }
 
