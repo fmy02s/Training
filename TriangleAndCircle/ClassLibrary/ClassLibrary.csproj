@@ -46,7 +46,7 @@
     <Compile Include="FigureJudge.cs" />
     <Compile Include="FigureManager.cs" />
     <Compile Include="FIgures\Circle.cs" />
-    <Compile Include="FIgures\Figure.cs" />
+    <Compile Include="FIgures\FigureHolder.cs" />
     <Compile Include="FIgures\Triangle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

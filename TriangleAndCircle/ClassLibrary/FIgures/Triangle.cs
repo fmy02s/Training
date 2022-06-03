@@ -7,14 +7,14 @@ using System.Windows;
 
 namespace ClassLibrary.FIgures
 {
-	public class Triangle : Figure
+	public class Triangle 
 	{
 		public Triangle(Point pos1, Point pos2, Point pos3)
 		{
 			_points = new Point[] { pos1, pos2, pos3 };
 		}
 
-		public Point[] Points => _points;
+		public Point[] TrianglePoints => _points;
 
 		private Point[] _points;
 	}

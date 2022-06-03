@@ -21,20 +21,15 @@ namespace TriangleAndCircle
                 if (isCancleInput)
                     break;
 
-                _figureManager.Add(triangle);
-
                 InputCircleParameters(out var circle);
-                _figureManager.Add(circle);
+                _figureManager.Add(new FigureHolder(triangle, circle));
 
             } while (true);
 
             //判定
-            for (int i = 0; i < _figureManager.OutputResultCount; i++)
-            {
-                _figureManager.GetTargets(i, out var triangle, out var circle);
-                var result = FigureJudge.GetResult(triangle, circle);
-                Console.WriteLine(result);
-            }
+            for (int i = 0; i < _figureManager.Count; i++)
+                Console.WriteLine(_figureManager.GetResult(i));
+
             Console.ReadLine();
         }
 

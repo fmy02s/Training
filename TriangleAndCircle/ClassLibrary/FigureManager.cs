@@ -11,23 +11,36 @@ namespace ClassLibrary
     {
 		public FigureManager()
 		{
-			_figures = new List<Figure>();
+			_figures = new List<FigureHolder>();
 		}
 
-		public void Add(Figure figure)
+		public void Add(FigureHolder figure)
 		{
 			_figures.Add(figure);
 		}
 
-		public void GetTargets(int num, out Triangle triangle, out Circle circle)
+		public Result GetResult(int index)
 		{
-			var targets = _figures.Skip(2 * num).Take(2).ToArray();
-			triangle = (Triangle)targets[0];
-			circle = (Circle)targets[1];
+			var target = _figures[index];
+			var position = FigureJudge.IsPointsInnerCircle(target.TrianglePoints, target.CircleCenterPoint, target.CircleRadius);
+			var isPointInnerTriagle = FigureJudge.IsPointInnerTriagle(target.TrianglePoints, target.CircleCenterPoint);
+
+			if (position == 三角形の頂点位置.全て円の中)
+				return Result.b_三角形が円に含まれる;
+
+			if (position == 三角形の頂点位置.全て円の外)
+			{
+				if (isPointInnerTriagle)
+					return Result.a_円が三角形に含まれる;
+				else
+					return Result.d_共通部分がない;
+			}
+
+			return Result.c_一部共通部分がある;
 		}
 
-		public int OutputResultCount => _figures.Count() / 2;
+		public int Count => _figures.Count();
 
-		private List<Figure> _figures;
+		private List<FigureHolder> _figures;
 	}
 }

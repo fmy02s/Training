@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace ClassLibrary.FIgures
 {
-	public class Circle : Figure
+	public class Circle 
 	{
 		public Circle(Point pos, int radius)
 		{
@@ -15,9 +15,9 @@ namespace ClassLibrary.FIgures
 			_radius = radius;
 		}
 
-		public Point Point => _pos;
+		public Point CircleCenterPoint => _pos;
 
-		public int Radius => _radius;
+		public int CircleRadius => _radius;
 
 		private Point _pos;
 		private int _radius;

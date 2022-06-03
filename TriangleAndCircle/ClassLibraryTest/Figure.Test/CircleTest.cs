@@ -15,9 +15,9 @@ namespace ClassLibraryTest.Figure.Test
 			var radius = 5;
 			var target = new Circle(point, radius);
 
-			Assert.AreEqual(10, target.Point.X);
-			Assert.AreEqual(20, target.Point.Y);
-			Assert.AreEqual(5, target.Radius);
+			Assert.AreEqual(10, target.CircleCenterPoint.X);
+			Assert.AreEqual(20, target.CircleCenterPoint.Y);
+			Assert.AreEqual(5, target.CircleRadius);
 		}
 	}
 }

@@ -17,13 +17,13 @@ namespace ClassLibraryTest.Figure.Test
 
 			var target = new Triangle(point1, point2, point3);
 
-			Assert.AreEqual(3, target.Points.Length);
-			Assert.AreEqual(10, target.Points[0].X);
-			Assert.AreEqual(20, target.Points[0].Y);
-			Assert.AreEqual(30, target.Points[1].X);
-			Assert.AreEqual(40, target.Points[1].Y);
-			Assert.AreEqual(50, target.Points[2].X);
-			Assert.AreEqual(60, target.Points[2].Y);
+			Assert.AreEqual(3, target.TrianglePoints.Length);
+			Assert.AreEqual(10, target.TrianglePoints[0].X);
+			Assert.AreEqual(20, target.TrianglePoints[0].Y);
+			Assert.AreEqual(30, target.TrianglePoints[1].X);
+			Assert.AreEqual(40, target.TrianglePoints[1].Y);
+			Assert.AreEqual(50, target.TrianglePoints[2].X);
+			Assert.AreEqual(60, target.TrianglePoints[2].Y);
 		}
 	}
 }

@@ -10,33 +10,33 @@ namespace ClassLibrary
 {
     public static class FigureJudge
     {
-        public static Result GetResult(Triangle triangle, Circle circle)
-        {
-            var position = IsPointsInnerCircle(triangle, circle);
-            var isPointInnerTriagle = IsPointInnerTriagle(triangle, circle.Point);
+        //public static Result GetResult(Triangle triangle, Circle circle)
+        //{
+        //    var position = IsPointsInnerCircle(triangle, circle);
+        //    var isPointInnerTriagle = IsPointInnerTriagle(triangle, circle.CircleCenterPoint);
 
-            if (position == 三角形の頂点位置.全て円の中)
-                return Result.b_三角形が円に含まれる;
+        //    if (position == 三角形の頂点位置.全て円の中)
+        //        return Result.b_三角形が円に含まれる;
 
-            if (position == 三角形の頂点位置.全て円の外)
-            {
-                if (isPointInnerTriagle)
-                    return Result.a_円が三角形に含まれる;
-                else
-                    return Result.d_共通部分がない;
-            }
+        //    if (position == 三角形の頂点位置.全て円の外)
+        //    {
+        //        if (isPointInnerTriagle)
+        //            return Result.a_円が三角形に含まれる;
+        //        else
+        //            return Result.d_共通部分がない;
+        //    }
 
-            return Result.c_一部共通部分がある;
-        }
+        //    return Result.c_一部共通部分がある;
+        //}
 
         // 三角形の各頂点：A, B, C
         // 円の中心点：P
         // 三角形の内側に点があるか
-        private static bool IsPointInnerTriagle(Triangle triangle, Point posP)
+        public static bool IsPointInnerTriagle(Point[] trianglePoints, Point posP)
         {
-            var posA = triangle.Points[0];
-            var posB = triangle.Points[1];
-            var posC = triangle.Points[2];
+            var posA = trianglePoints[0];
+            var posB = trianglePoints[1];
+            var posC = trianglePoints[2];
 
             var vecAB = new Vector(posB.X - posA.X, posB.Y - posA.Y);
             var vecBP = new Vector(posP.X - posB.X, posP.Y - posB.Y);
@@ -60,13 +60,13 @@ namespace ClassLibrary
 
         // 円と点の位置関係
         // 三角形の頂点が円の内側にあるか
-        private static 三角形の頂点位置 IsPointsInnerCircle(Triangle triangle, Circle circle)
+        public static 三角形の頂点位置 IsPointsInnerCircle(Point[] trianglePoints, Point circleCenterPoint,int circleRadius)
         {
             int count = 0;
-            foreach (var pos in triangle.Points)
+            foreach (var pos in trianglePoints)
             {
-                var distance = Math.Sqrt(Math.Pow(pos.X - circle.Point.X, 2) + Math.Pow(pos.Y - circle.Point.Y, 2));
-                if (circle.Radius < distance)
+                var distance = Math.Sqrt(Math.Pow(pos.X - circleCenterPoint.X, 2) + Math.Pow(pos.Y - circleCenterPoint.Y, 2));
+                if (circleRadius < distance)
                     count++;
             }
 
