@@ -10,10 +10,29 @@ namespace ClassLibrary
 {
     public static class FigureJudge
     {
-        // 三角形の各頂点：A, B, C
-        // 円の中心点：P
-        // 三角形の内側に点があるか
-        public static bool IsPointInnerTriagle(Point[] trianglePoints, Point posP)
+		public static Result GetResult(FigureHolder target)
+		{
+            var position = IsPointsInnerCircle(target.TrianglePoints, target.CircleCenterPoint, target.CircleRadius);
+			var isPointInnerTriagle = IsPointInnerTriagle(target.TrianglePoints, target.CircleCenterPoint);
+
+			if (position == 三角形の頂点位置.全て円の中)
+				return Result.b_三角形が円に含まれる;
+
+			if (position == 三角形の頂点位置.全て円の外)
+			{
+				if (isPointInnerTriagle)
+					return Result.a_円が三角形に含まれる;
+				else
+					return Result.d_共通部分がない;
+			}
+
+			return Result.c_一部共通部分がある;
+		}
+
+		// 三角形の各頂点：A, B, C
+		// 円の中心点：P
+		// 三角形の内側に点があるか
+		public static bool IsPointInnerTriagle(Point[] trianglePoints, Point posP)
         {
             var posA = trianglePoints[0];
             var posB = trianglePoints[1];
