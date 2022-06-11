@@ -32,7 +32,7 @@ namespace ClassLibrary
 		// 三角形の各頂点：A, B, C
 		// 円の中心点：P
 		// 三角形の内側に点があるか
-		public static bool IsPointInnerTriagle(Point[] trianglePoints, Point posP)
+		private static bool IsPointInnerTriagle(Point[] trianglePoints, Point posP)
         {
             var posA = trianglePoints[0];
             var posB = trianglePoints[1];
@@ -60,7 +60,7 @@ namespace ClassLibrary
 
         // 円と点の位置関係
         // 三角形の頂点が円の内側にあるか
-        public static 三角形の頂点位置 IsPointsInnerCircle(Point[] trianglePoints, Point circleCenterPoint,int circleRadius)
+        private static 三角形の頂点位置 IsPointsInnerCircle(Point[] trianglePoints, Point circleCenterPoint,int circleRadius)
         {
             int count = 0;
             foreach (var pos in trianglePoints)
